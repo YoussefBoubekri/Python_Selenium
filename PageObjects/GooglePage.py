@@ -22,6 +22,6 @@ class GooglePage(Page):
         return self.driver.title
 
     def execute_search(self, search_query):
-        """Clicks the end of game button"""
+        """Clicks the search button"""
         self.find_element(*self.search_text_box).send_keys(search_query)
         self.find_element(*self.search_button).click()
