@@ -1,0 +1,5 @@
+install pytest
+to run tests ==> py.test --junitxml results.xml tests.py
+
+
+            
