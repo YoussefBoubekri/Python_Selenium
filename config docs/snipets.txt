@@ -1,0 +1,13 @@
+install pytest
+to run tests ==> py.test --junitxml results.xml tests.py
+
+
+Misc notes:
+===========
+always config jenkins with ips or regitred dns
+
+always activate testplan before adding testcases to it
+
+classes names in the xml result file must be the same in testlink testcase custom field
+
+            
