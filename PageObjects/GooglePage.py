@@ -5,23 +5,17 @@ from BasePageObject.Base_Page_Object import Page
 
 class GooglePage(Page):
     #Elements
-    url = ""
-    #Locators
-    search_text_box = (By.ID, 'lst-ib')
+    url = "" # base url + /page.php... for any additional url request....
     search_button = (By.CSS_SELECTOR, 'input[type="submit"]')
  
-    def __init__(self, selenium_driver,base_url='http://www.google.fr/'):
-        Page.__init__(self, selenium_driver, base_url='http://www.google.fr/') 
+    def __init__(self, driver):
+        self.driver = driver 
+        Page.__init__(self, self.driver, base_url='http://www.google.fr/')
 
     # Actions
-    def openpage(self):
+    def open_page(self):
         self.open(self.url)
 
-    def get_Title(self):
-        """Returns the page title"""        
-        return self.driver.title
-
     def execute_search(self, search_query):
-        """Clicks the search button"""
         self.find_element(*self.search_text_box).send_keys(search_query)
         self.find_element(*self.search_button).click()

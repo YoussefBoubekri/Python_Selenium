@@ -1,10 +1,10 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+import pytest
 
 class Page(object):
-    def __init__(self, selenium_driver, base_url='http://www.google.fr/'):
+    def __init__(self, mydriver, base_url):
         self.base_url = base_url
-        self.driver = selenium_driver
+        self.driver = mydriver
         self.timeout = 30
 
     def find_element(self, *loc):
@@ -13,3 +13,7 @@ class Page(object):
     def open(self,url):
         url = self.base_url + url
         self.driver.get(url)
+    
+    def get_Title(self):
+        return self.driver.title
+

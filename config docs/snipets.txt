@@ -10,4 +10,28 @@ always activate testplan before adding testcases to it
 
 classes names in the xml result file must be the same in testlink testcase custom field
 
-            
+
+
+
+java -Dwebdriver.chrome.driver="/usr/local/bin/chromedriver" -jar selenium-server-standalone-3.8.1.jar -role webdriver -browser "browserName=chrome, platform=MAC" -hubHost localhost -port 7777
+
+java -jar selenium-server-standalone-3.8.1.jar -role webdriver -browser "browserName=firefox, platform=MAC" -hubHost localhost -port 6666
+
+java -jar selenium-server-standalone-3.8.1.jar -port 4444 -role hub
+
+pip3 install pytest-xdist
+
+pytest -n 2 run2.py
+
+
+
+
+steps:
+
+run hub : java -jar selenium-server-stdalone-3.8.1.jar -port 4444 -role hub
+
+run node 1: java -jar selenium-server-stdalone-3.8.1.jar -role webdriver -browser "browserName=firefox, platform=MAC" -hubHost localhost -port 6666
+
+run node 2: java -Dwebdriver.chrome.driv="/usr/local/bin/chromedriver" -jar selenium-server-standalone-3.8.1.jar -role webdriver -browser "browserName=chrome, platform=MAC" -hubHost localhost -port 7777
+
+run tests using pytest
