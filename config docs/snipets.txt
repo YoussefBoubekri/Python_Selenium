@@ -35,3 +35,6 @@ run node 1: java -jar selenium-server-stdalone-3.8.1.jar -role webdriver -browse
 run node 2: java -Dwebdriver.chrome.driv="/usr/local/bin/chromedriver" -jar selenium-server-standalone-3.8.1.jar -role webdriver -browser "browserName=chrome, platform=MAC" -hubHost localhost -port 7777
 
 run tests using pytest
+
+
+custom field in testlink should be test_GooglePage.TestGooglePageTwo : [py filename].{py classname}

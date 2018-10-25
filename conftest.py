@@ -14,5 +14,6 @@ def browser(request):
         command_executor=WEBDRIVER_ENDPOINT,
         desired_capabilities=BROWSERS[request.param]
     )
+    #driver = webdriver.Chrome() # run locally for a quick test
     yield driver
     driver.quit()
