@@ -21,14 +21,15 @@ BROWSERS = {
     'chrome': webdriver.DesiredCapabilities.CHROME,
 }
 ...
-```python
+```
 
 so when running tests in directmode (not through selenium hub), one should pass a dirver directly
 then omit the browser arg in the fixture function
+
 ```python
 @pytest.fixture(params=BROWSERS.keys())
 def browser(request):
-```python
+```
 
 ## Results:
   a Junit-formatted xml file:
