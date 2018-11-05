@@ -11,6 +11,25 @@ This example uses the Page Object pattern to separate actual Test specs from Pag
 ## Running the tests:
   py.test --junitxml results.xml run.py
 
+## Note:
+due to pytest fixture that accepts browsers dicts, and because that is injected directly using
+pytest. tests specs will run for each pair key/value in those disctionaries.
+
+```python
+BROWSERS = {
+    'firefox': webdriver.DesiredCapabilities.FIREFOX,
+    'chrome': webdriver.DesiredCapabilities.CHROME,
+}
+...
+```python
+
+so when running tests in directmode (not through selenium hub), one should pass a dirver directly
+then omit the browser arg in the fixture function
+```python
+@pytest.fixture(params=BROWSERS.keys())
+def browser(request):
+```python
+
 ## Results:
   a Junit-formatted xml file:
   
